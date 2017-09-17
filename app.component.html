@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-wrap">
+        <h1>Directives Application</h1>
+        <form role="form">
+          <!-- FirstName textbox with two-way binding-->
+          <div class="form-group">
+            {{FirstName}}<br/>
+            <label for="firstName">FirstName</label>
+            <input type="text" [(ngModel)]="FirstName" name="FirstName" class="form-control" placeholder="FirstName" #first>
+          </div>
+          <!-- LastName textbox with two-way binding-->
+          <div class="form-group">
+              {{LastName}}<br/>
+              <label for="LastName">FirstName</label>
+              <input type="text" [(ngModel)]="lastName" name="LastName" class="form-control" placeholder="LastName" #last>
+            </div>
+            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="CreateTitle"(click)="CreateTitle(first.value,last.value)">
+        </form>
+        <hr/>
+        <!-- Template Attribute-->
+        <div class="form-group" template="ngIf submitted">
+          <child-app[title]="title">Template Attribute</child-app>
+        </div>
+        <!-- Template Element-->
+        <template[ngIf]="submitted">
+          <child-app[title]="title">Template Element</child-app>
+        </template>
+      </div>
+    </div>
+  </div>
+</div>
